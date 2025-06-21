@@ -1,11 +1,13 @@
 import { Router } from "express";
 import homeController from "./controllers/homeController.js";
 import userController from "./controllers/userControler.js";
+import productController from "./controllers/productController.js";
 
 const routs = Router()
 
 routs.use(homeController)
 routs.use('/users',userController)
+routs.use('/products',productController)
 routs.all('*url' , (req,res) => {
   res.render('404', {pageTitle : 'Not Found'})
 })

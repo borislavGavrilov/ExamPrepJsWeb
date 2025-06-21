@@ -1,0 +1,17 @@
+  <h2>Product Catalog</h2>
+
+        <section class="products">
+                {{#each productService}}
+
+           <article class="product">
+             <img src="{{image}}">
+              <h3>{{name}}</h3>
+              <p>Suitable for: {{skin}}</p>
+              <a href="/products/{{id}}/details">Read More</a>
+              </article>
+
+                {{else}}
+              <p class="no-post">There are no products found yet!</p>
+
+                {{/each}}
+          </section>
