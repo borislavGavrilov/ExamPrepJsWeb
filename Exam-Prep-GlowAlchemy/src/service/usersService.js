@@ -4,14 +4,12 @@ import { generateToken } from "../utils/userToken.js"
 
 
 export default {
-   async register(username,email,password,rePassword){
+   async register(name,email,password,rePassword){
 
-    const isExist = await this.findUser(username)
-
-    console.log(password);
+    const isExist = await this.findUser(email)
     
     if (isExist){
-        throw Error ('Username alredy exist!')
+        throw Error ('Email alredy exist!')
     }
 
     if (password !== rePassword){
@@ -24,7 +22,7 @@ export default {
     const hashPass = await bcrypt.hash(password , 10)
     password = hashPass
 
-    const newUser = await User.create({username , email , password})
+    const newUser = await User.create({name , email , password})
 
     const token = generateToken(newUser)
 
@@ -32,16 +30,16 @@ export default {
 
     },
 
-   async findUser (username){
+   async findUser (email){
 
-    return User.findOne({username : username})
+    return User.findOne({email: email})
     
 
    }
    ,
-   async login(username , password){
+   async login(email , password){
 
-    const existUser =  await this.findUser(username)
+    const existUser =  await this.findUser(email)
     
     if (!existUser){
      throw Error('Wrong username')

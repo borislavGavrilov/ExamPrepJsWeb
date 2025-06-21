@@ -1,4 +1,4 @@
-import { Router } from "express";
+import e, { Router } from "express";
 import usersService from "../service/usersService.js";
 import { AUTH_COOKIENAME } from "../config/index.js";
 import { auth, isAuth, isGuest } from "../middlewares/authMiddlewares.js";
@@ -13,12 +13,15 @@ userController.get('/register', isGuest , (req,res) => {
 
 userController.post('/register',isGuest, async (req,res) => {
  
-    const {username , email , password , confimPassword} = req.body 
+    const {name , email , password , confimPassword} = req.body 
+
+    console.log(req.body);
+    
     
 
    try {
 
-   const token =  await usersService.register(username , email , password , confimPassword)
+   const token =  await usersService.register(name , email , password , confimPassword)
 
    //attach cookie
     res.cookie(AUTH_COOKIENAME , token)
@@ -41,10 +44,10 @@ userController.get('/login',isGuest, (req,res) => {
  })
 
  userController.post('/login',isGuest, async (req,res) => {
-   const {username,password} = req.body
+   const {email,password} = req.body
    
    try {
-     const token =  await usersService.login(username , password)
+     const token =  await usersService.login(email , password)
 
   //attach token
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{#if pageTitle}}{{pageTitle}}{{else}}Base Title{{/if}}</title>
+    <title>{{#if pageTitle}}{{pageTitle}}{{else}}Cosmic Explorer{{/if}}</title>
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
@@ -26,6 +26,12 @@
             </ul>
         </nav>
     </header>
+
+      {{#if error}}
+      <div class="error-containers">
+            <p>{{error}}</p>
+        </div> 
+        {{/if}}
     <main>
         {{{body}}}
            </main>
