@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - GlowAlchemy</title>
+    <title>Login - GlowAlchemy</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
@@ -20,11 +20,27 @@
             </ul>
         </nav>
     </header>
+
+    
+        {{#if error}}
+      <div class="error-containers">
+            <p>{{error}}</p>
+        </div> 
+        {{/if}}
+        
     <main>
-        <section class="error-page">
-            <h2>404</h2>
-            <p>Oops! The page you're looking for doesn't exist.</p>
-            <a href="#" class="btn">Go Back Home</a>
+        <section class="form-container">
+            <h2>Login</h2>
+            <form action="#">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="">
+                
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#">Register here</a>.</p>
         </section>
     </main>
     <footer>

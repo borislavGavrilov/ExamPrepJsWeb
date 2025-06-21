@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planet Catalog</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>Product Catalog - GlowAlchemy</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
-
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Catalog</a></li>
+                <li><a href="#">Products</a></li>
                 <li><a href="#">Search</a></li>
+                <li><a href="#">Add Product</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
-                <li><a href="#">Create</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="planet-card" id="planet1">
-            <img
-                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e64e74fd-a498-4cdf-b98a-0876f9e54831/d5ich6s-cbf349d4-4ea4-4dd6-a6db-769feefe98f5.jpg/v1/fill/w_900,h_474,q_75,strp/alpha_centauri_bb_by_eburacum45_d5ich6s-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDc0IiwicGF0aCI6IlwvZlwvZTY0ZTc0ZmQtYTQ5OC00Y2RmLWI5OGEtMDg3NmY5ZTU0ODMxXC9kNWljaDZzLWNiZjM0OWQ0LTRlYTQtNGRkNi1hNmRiLTc2OWZlZWZlOThmNS5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.E7E9_PCtIsRdKCPAPmnZSrk3CTKTBkx5hnokU57pDRk">
-            <h3>Alpha Centauri Bb</h3>
-            <p>Solar System: Alpha Centauri</p>
-            <a class='detail-btn' href='#'>Details</a>
-        </div>
-        <div class="planet-card" id="planet2">
-            <img src="https://cdn.pixabay.com/photo/2022/06/29/15/25/jupiter-7291995_1280.jpg" alt="Planet 2">
-            <h3>Jupiter</h3>
-            <p>Solar System: Milky Way</p>
-            <a class='detail-btn' href='#'>Details</a>
-        </div>
-        <!-- Repeat the block for more planets -->
-        <p class="no-post">There are no planets found yet!</p>
-
+        <h2>Product Catalog</h2>
+        <section class="products">
+            <article class="product">
+                <img src="https://goldleaf.nz/wp-content/uploads/2023/05/102_146_1683614016510_24CTGOLDRADIANTLIGHT_600.jpg">
+                <h3>Radiant Glow Hydration Serum</h3>
+                <p>Suitable for: All skin types, including sensitive, oily, and combination.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="product">
+                <img src="https://www.mellicosmetics.com/cdn/shop/products/satskinf_1050x1050.png?v=1645852117">
+                <h3>Silk Matte Finish Foundation</h3>
+                <p>Suitable for: Oily, combination, and normal skin.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="product">
+                <img src="https://i.ebayimg.com/images/g/5f0AAOSwA45iXAey/s-l1600.jpg">
+                <h3>RevitalEyes Overnight Eye Cream</h3>
+                <p>Suitable for: All skin types, especially beneficial for mature or dry skin around the eyes.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="product">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.7yrDvIfb_ClJC0knVVnD1AHaHa&pid=Api">
+                <h3>Calm & Soothe Toner Mist</h3>
+                <p>Suitable for: Sensitive, dry, and combination skin types</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="product">
+                <img src="https://beautypalast.ch/images/products/21140_1_Makeup_Revolution_Fluessig-Concealer_-_Eye_Bright_Illuminating_Under_Eye_Concealer.jpg">
+                <h3>BrightEyes Illuminating Concealer</h3>
+                <p>Suitable for: All skin types, especially dry or mature skin</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="product">
+                <img src="https://images.soco.id/64904649618-1588918402503.png">
+                <h3>Velvet Matte Lip Mousse</h3>
+                <p>Suitable for: All skin types</p>
+                <a href="#">Read More</a>
+            </article>
+            <!-- Add more products here -->
+            
+            <!-- <p class="no-post">There are no products found yet!</p> -->
+        </section>
     </main>
     <footer>
-        <p>© 2024 Space Explorers. All rights reserved.</p>
+        <p>&copy; 2024 GlowAlchemy. All rights reserved.</p>
     </footer>
 </body>
-
 </html>
