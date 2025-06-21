@@ -1,10 +1,14 @@
 import { Router } from "express";
+import productsSevice from "../service/productsSevice.js";
 
 const homeController = Router()
 
 
-homeController.get('/' , (req,res) => {
-  res.render('home' , {pageTitle : 'Home'})
+homeController.get('/' , async (req,res) => {
+
+  const productService = await productsSevice.getLatest()
+
+  res.render('home' , {pageTitle : 'Home' , productService})
 })
 
 

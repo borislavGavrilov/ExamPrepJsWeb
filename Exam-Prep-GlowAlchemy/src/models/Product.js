@@ -32,7 +32,11 @@ const productShema = new Schema({
     owner : {
         type : Types.ObjectId,
         ref : 'User'
-    }
+    },
+    recommends : [{
+        type : Types.ObjectId,
+        ref: 'User'
+    }]
 
 })
 

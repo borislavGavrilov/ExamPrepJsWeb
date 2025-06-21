@@ -27,25 +27,54 @@ productController.post('/create', isAuth , async (req,res) => {
     }
    
 })
+
 productController.get('/catalog' , async (req,res) => {
     const productService = await productsSevice.getAllProducts()
 
-    console.log(productService);
-    
   res.render('product/catalog' , {productService})
 })
+
 productController.get('/:productId/details' , async (req,res) => {
   const productId = req.params.productId
-  
+
   try {
 
     const productData = await productsSevice.getProduct(productId)
+    
+    const isOwner = productData.owner.equals(req.user?.id)
+
     productData.ingredients = productData.ingredients.replaceAll(',' , '/')
 
-    res.render('product/details' , {productData})
+    const isRecommended = productData.recommends.includes(req.user?.id)
+
+
+    res.render('product/details' , {productData , isOwner , isRecommended})
   } catch (err) {
+
+    res.render('404' , {error : getError(err)})
     
   }
+  
+})
+
+productController.get('/:productId/recommend' , isAuth, async (req,res) => {
+  const productId = req.params.productId
+
+  const userId = req.user.id
+
+  
+ try {
+
+  await productsSevice.recommend(userId , productId)
+
+  res.redirect(`/products/${productId}/details`)
+  
+  
+ } catch (err) {
+
+  res.render('404' , {error : getError(err)})
+  
+ } 
   
 })
 export default productController
