@@ -3,6 +3,7 @@ import { isAuth } from "../middlewares/authMiddlewares.js";
 import { getError } from "../utils/errorUtils.js";
 import productsSevice from "../service/productsSevice.js";
 
+
 const productController = Router()
 
 productController.get('/create', isAuth , (req,res) => {
@@ -95,5 +96,33 @@ productController.get('/:productId/delete' , isAuth ,async (req,res) => {
   res.redirect('/products/catalog')
 
   
+})
+
+productController.get('/:productId/edit',isAuth , async (req,res) => {
+  const getProductId = req.params.productId
+
+  const getProduct =  await productsSevice.getProduct(getProductId)
+
+  res.render('product/edit' , {getProduct})
+
+
+})
+
+productController.post('/:productId/edit' , isAuth , async (req,res) => {
+  const updatedData = req.body
+  const productId = req.params.productId
+  const userId = req.user.id
+
+  try {
+      await productsSevice.editProduct(updatedData , productId , userId)
+
+     res.redirect(`/products/${productId}/details`)
+    
+  } catch (err) {
+
+    res.render('product/edit' , {error : getError(err) , product : updatedData})
+    
+  }
+
 })
 export default productController

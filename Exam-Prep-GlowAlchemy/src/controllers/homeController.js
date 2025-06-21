@@ -11,5 +11,10 @@ homeController.get('/' , async (req,res) => {
   res.render('home' , {pageTitle : 'Home' , productService})
 })
 
+homeController.get('/search' , async (req,res) => {
+  //const filter = req.query
+  res.render('search' , {products : []})
+})
+
 
 export default homeController

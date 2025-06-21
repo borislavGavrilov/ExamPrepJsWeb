@@ -34,5 +34,17 @@ export default {
     deleteProduct(productId) {
       return Product.findByIdAndDelete(productId)
 
+    },
+    async editProduct(newData , productId , getUserId){
+
+        const findItem = await this.getProduct(productId)
+
+
+        if (!findItem.owner.equals(getUserId)){
+            throw Error('Only owner can edit')
+        }
+
+       return await Product.findByIdAndUpdate(productId ,newData , {runValidators :  true})
+        
     }
 }
