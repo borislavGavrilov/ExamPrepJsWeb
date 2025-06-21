@@ -10,5 +10,9 @@ export default {
         const products = await Product.find()
 
         return products
+    },
+    getProduct(productId) {
+        return Product.findById(productId)
+
     }
 }

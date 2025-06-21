@@ -34,5 +34,18 @@ productController.get('/catalog' , async (req,res) => {
     
   res.render('product/catalog' , {productService})
 })
-productController.get()
+productController.get('/:productId/details' , async (req,res) => {
+  const productId = req.params.productId
+  
+  try {
+
+    const productData = await productsSevice.getProduct(productId)
+    productData.ingredients = productData.ingredients.replaceAll(',' , '/')
+
+    res.render('product/details' , {productData})
+  } catch (err) {
+    
+  }
+  
+})
 export default productController
