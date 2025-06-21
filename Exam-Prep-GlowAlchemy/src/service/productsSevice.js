@@ -30,5 +30,9 @@ export default {
     },
      getLatest(){
         return Product.find().sort({_id:-1}).limit(3)
+    },
+    deleteProduct(productId) {
+      return Product.findByIdAndDelete(productId)
+
     }
 }

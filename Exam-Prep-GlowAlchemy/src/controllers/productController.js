@@ -77,4 +77,23 @@ productController.get('/:productId/recommend' , isAuth, async (req,res) => {
  } 
   
 })
+
+productController.get('/:productId/delete' , isAuth ,async (req,res) => {
+
+  const productId = req.params.productId
+
+  const getUserId = req.user.id
+
+  const product =  await productsSevice.getProduct(productId)
+
+  if (!product.owner.equals(getUserId)){
+   return  res.redirect('404' , {error : 'Only owner can delete this product'})
+  }
+
+  await productsSevice.deleteProduct(productId)
+
+  res.redirect('/products/catalog')
+
+  
+})
 export default productController
