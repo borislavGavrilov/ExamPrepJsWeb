@@ -12,8 +12,10 @@ homeController.get('/' , async (req,res) => {
 })
 
 homeController.get('/search' , async (req,res) => {
-  //const filter = req.query
-  res.render('search' , {products : []})
+   
+  const products = await productsSevice.getAllProducts()
+
+  res.render('search' , {products})
 })
 
 
